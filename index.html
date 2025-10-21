@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waleed Abdullah - Cybersecurity Specialist Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6;
+        }
+        .font-fira-code {
+            font-family: 'Fira Code', monospace;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background-color: #111827;
+        }
+        .terminal-cursor {
+            display: inline-block;
+            background-color: #34D399;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            from, to { background-color: transparent }
+            50% { background-color: #34D399; }
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .section-fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: auto;
+        }
+        @media (min-width: 768px) {
+           .chart-container {
+             max-width: 450px;
+           }
+        }
+        nav a.active {
+            color: #34D399;
+            font-weight: 600;
+        }
+        .project-card, .stat-box, .diploma-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .project-card:hover, .stat-box:hover, .diploma-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #34D399;
+        }
+        .modal-backdrop {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .modal-content {
+            transition: transform 0.3s ease-in-out;
+        }
+        /* 🔹 Outer Glow Behind the Terminal */
+.terminal-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110%;
+  height: 120%;
+  transform: translate(-50%, -50%);
+  filter: blur(40px);
+  z-index: 0;
+  opacity: 0.6;
+  transition: all 0.5s ease;
+}
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-300">
+
+    <div id="particles-js"></div>
+
+    <header id="header" class="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-40 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="text-xl font-bold text-emerald-400 flex items-center gap-2">
+                    <i class="fas fa-shield-halved"></i>
+                    <span>Waleed Abdullah</span>
+                </a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                    <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
+                    <a href="#Diplomas" class="hover:text-emerald-400 transition-colors">Diplomas</a>
+                    <a href="#Experience" class="hover:text-emerald-400 transition-colors">Experience</a>
+                    <a href="#achievements" class="hover:text-emerald-400 transition-colors">Achievements</a>
+                    <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+                </nav>
+                <button id="mobile-menu-btn" class="md:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-800">
+            <nav class="flex flex-col items-center space-y-4 py-4">
+                <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-emerald-400 transition-colors">Skills</a>
+                <a href="#Diplomas" class="hover:text-emerald-400 transition-colors">Diplomas</a>
+                <a href="#Experience" class="hover:text-emerald-400 transition-colors">Experience</a>
+                <a href="#achievements" class="hover:text-emerald-400 transition-colors">Achievements</a>
+                <a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <section id="hero" class="min-h-[calc(100vh-4rem)] flex items-center justify-center">
+            <div class="w-full max-w-4xl mx-auto">
+                <div class="bg-gray-800/70 rounded-lg shadow-2xl overflow-hidden border border-gray-700">
+                    <div class="bg-gray-700 p-3 flex items-center">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                        </div>
+                        <p class="text-center flex-grow text-gray-400 text-sm font-fira-code">root@kali:~</p>
+                    </div>
+                    <div id="terminal" class="p-6 font-fira-code text-sm sm:text-base h-72 overflow-y-auto">
+                        <div class="terminal-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 section-fade-in min-h-[calc(100vh-120px)] flex flex-col justify-center border-t border-white/10">
+             <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">About Me</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">I turn curiosity into code, transforming complex security challenges into robust defense mechanisms.</p>
+            </div>
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3">
+                    <h3 class="text-2xl font-semibold text-white mb-4">Hello, I'm <span class="text-emerald-400">Waleed Abdullah</span></h3>
+                    <div class="space-y-4 text-gray-300">
+                        <p>A passionate and results-driven cybersecurity student specializing in <span class="font-semibold text-emerald-400">red teaming</span> and <span class="font-semibold text-emerald-400">penetration testing</span>. My mission is to proactively identify and neutralize threats before they can be exploited by malicious actors.</p>
+                        <p>I thrive in the dynamic environments of platforms like Hack The Box and TryHackMe, where I continuously sharpen my skills. My work extends to competing in CTF challenges, contributing to bug bounty programs, and researching emerging attack vectors. This hands-on experience allows me to not only find vulnerabilities but also to understand their impact and architect effective solutions.</p>
+                        <div class="flex flex-wrap gap-4 mt-8">
+                            <a href="#contact" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fas fa-envelope"></i> Contact Me
+                            </a>
+                             <a href="#Experience" class="bg-cyan-400 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fas fa-briefcase"></i> Experience
+                            </a>
+                            <a href="https://drive.google.com/file/d/1xYo-h2ZUP2Dlrt9Okrna8PS0v8mmG_yu/view?usp=drive_link" download="waleed_abdullah.pdf" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fas fa-download"></i> Download CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-2 grid grid-cols-2 gap-6 text-center">
+                    <div class="bg-gray-800 hover-glow p-6 rounded-lg stat-box">
+                        <span class="text-4xl font-bold text-emerald-400">3+</span>
+                        <p class="text-gray-400 mt-2">CTF Competitions</p>
+                    </div>
+                    <div class="bg-gray-800 hover-glow p-6 rounded-lg stat-box">
+                        <span class="text-4xl font-bold text-emerald-400">120+</span>
+                        <p class="text-gray-400 mt-2">Solved Challenges</p>
+                    </div>
+                    <div class="bg-gray-800 hover-glow p-6 rounded-lg stat-box">
+                        <span class="text-4xl font-bold text-emerald-400">10+</span>
+                        <p class="text-gray-400 mt-2">Security Certs</p>
+                    </div>
+                     <div class="bg-gray-800 hover-glow p-6 rounded-lg stat-box">
+                        <span class="text-4xl font-bold text-emerald-400">12+</span>
+                        <p class="text-gray-400 mt-2">Vulns Found</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-24 section-fade-in min-h-[calc(100vh-120px)] flex flex-col justify-center border-t border-white/10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">🧠 Skills & Expertise</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">A visual breakdown of my technical capabilities. I focus on a holistic understanding of security, from offensive tactics to defensive strategies.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 items-start">
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Core Competencies</h3>
+                    <div class="chart-container">
+                        <canvas id="skillsChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Vulnerability Focus</h3>
+                    <div class="chart-container">
+                        <canvas id="vulnsChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-1 bg-gray-800 p-8 rounded-lg">
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Proficiency Radar</h3>
+                    <div class="chart-container">
+                        <canvas id="proficiencyRadarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Certificates & Experience</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 10px #00ffff; }
+      50% { box-shadow: 0 0 25px #00ffff; }
+    }
+    .glow { animation: glow 2s infinite alternate; }
+
+    /* ✅ Add hover glow effect for both certificate and experience cards */
+    .hover-glow:hover {
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+      transition: box-shadow 0.4s ease;
+    }
+  </style>
+</head>
+
+<body class="bg-[#0A0F1E] text-gray-100 font-sans">
+
+  <!-- Certificates & Diplomas -->
+  <section id="Diplomas" class="py-16 px-6 lg:px-12 border-t border-white/10" id="certificates">
+    <h2 class="text-4xl font-bold text-center mb-5 text-cyan-400 tracking-wide">
+      🎓 Certificates & Diplomas
+    </h2>
+    <p class="text-gray-400 text-center max-w-3xl mx-auto mt-4 mb-8 text-sm sm:text-base">
+    A curated collection of my verified cybersecurity and IT certifications showcasing hands-on skills 
+    in SOC analysis, threat detection, and ethical hacking.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-0 gap-y-8 justify-items-center">
+      <!-- Certificate 1 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\PT1.png"
+           data-link="https://tryhackme.com">
+        <span class="bg-red-500 text-xs px-2 py-1 mb-20 rounded-full font-semibold text-white">Certified</span>
+        <div class="flex justify-between items-center mb-3">
+          <img src="images\PT1.png" class="h-50 w-50 justify-items-center border-white rounded-2xl mt-4 " ><br>
+        </div>
+        <h3 class="text-lg font-semibold text-white">TryHackMe - Junior Penetration Tester (PT1) Certified</h3>
+        <p class="text-sm text-gray-400 mt-2">Hands-on Exam which include Web, Active Directory & network penetration.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+
+      <!-- Certificate 2 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\CEH-Certificate.png"
+           data-link="https://letdefend.io">
+        <span class="bg-red-500 text-xs px-2 py-1 mb-20 rounded-full font-semibold text-white">Certified</span>
+        <div class="flex justify-between items-center mb-3">
+          <img src="images\CEH-Certificate.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">EC-Council - Certified Ethical Hacker</h3>
+        <p class="text-sm text-gray-400 mt-2">Earned the globally recognized Certified Ethical Hacker certification.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+
+      <!-- Certificate 3 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\THM-HMSTOKGGM9.png"
+           data-link="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-HMSTOKGGM9.png">
+           <span class="bg-yellow-500 text-xs px-2 py-1 text-white rounded-full font-semibold">CTF</span>
+        <div class="flex justify-between items-center mb-3">
+          
+          <img src="images\THM-HMSTOKGGM9.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">TryHackMe - Hackfinity Battle: Rank 134/4316</h3>
+        <p class="text-sm text-gray-400 mt-2">Top 1% placement in a global CTF event.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+
+      <!-- Certificate 4 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\THM-NLHCND8PXW.png"
+           data-link="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-NLHCND8PXW.png">
+           <span class="bg-blue-500 text-xs px-2 py-1 rounded-full text-white font-semibold">CTF</span>
+        <div class="flex justify-between items-center mb-3">
+          
+          <img src="images\THM-NLHCND8PXW.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">Tryhackme - Honeynet Collapse CTF (Forensic): Rank 106/4126</h3>
+        <p class="text-sm text-gray-400 mt-2">Top 1% placement in a global CTF event.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+
+       <!-- Certificate 5 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\jr penetration.png"
+           data-link="https://tryhackme.com/certificate/THM-CW1FEA33IZs">
+          <span class="bg-green-600 text-xs px-2 py-1 text-white rounded-full font-semibold">Path</span>
+           <div class="flex justify-between items-center mb-3">
+          <img src="images\jr penetration.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">Tryhackme - Jr Penetration Tester</h3>
+        <p class="text-sm text-gray-400 mt-2">Hands-on lab which invoves network and web penetration.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+
+      <!-- Certificate 6 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\path.png"
+           data-link="https://tryhackme.com/certificate/THM-4YTAM10UCF">
+          <span class="bg-green-600 text-xs px-2 py-1 rounded-full text-white font-semibold">Path</span>
+           <div class="flex justify-between items-center mb-3">
+          <img src="images\path.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">Tryhackme - Cybersecurity 101</h3>
+        <p class="text-sm text-gray-400 mt-2">Hands-on lab which invoves network and web Basics.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+
+      <!-- Certificate 7 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\pre security.png"
+           data-link="https://tryhackme.com/certificate/THM-24MZCZ6SUL">
+          <span class="bg-green-600 text-xs px-2 py-1 rounded-full text-white font-semibold">Path</span>
+           <div class="flex justify-between items-center mb-3">
+          <img src="images\pre security.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">Tryhackme - Cybersecurity 101</h3>
+        <p class="text-sm text-gray-400 mt-2">Hands-on lab which invoves network and web Basics.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+
+      <!-- Certificate 8 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\Advent of cyber.png"
+           data-link="https://coursera.org">
+           <span class="bg-green-600 text-xs px-2 py-1 rounded-full font-semibold text-white">Challenges</span>
+       <div class="flex justify-between items-center mb-3">
+          <img src="images\Advent of cyber.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">Coursera - Network Security Specialization</h3>
+        <p class="text-sm text-gray-400 mt-2">Comprehensive training in firewalls, IDS, VPNs, and security protocols.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+       <!-- Certificate 9 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\Google Cybersecurity.png"
+           data-link="https://www.coursera.org/account/accomplishments/professional-cert/B2ARPXA5SLSI">
+        <span class="bg-purple-500 text-xs px-2 py-1 rounded-full text-white font-semibold">Coursera</span>
+
+        <div class="flex justify-between items-center mb-3">
+          <img src="images\Google Cybersecurity.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">Google - Certified Cybersecurity</h3>
+        <p class="text-sm text-gray-400 mt-2">Earned the globally recognized Certified Cybersecurity certificate.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+ <!-- Certificate 10 -->
+      <div class="certificate-card hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl p-5 w-72 hover:-translate-y-2 transition-all duration-300"
+           data-img="images\image.png"
+           data-link="https://isc2.obrizum.io/org/cc/certificate/99b762c7-59a6-462c-bf5e-3db236fa58c7">
+        <span class="bg-purple-500 text-xs px-2 py-1 rounded-full text-white font-semibold">Course</span>
+
+        <div class="flex justify-between items-center mb-3">
+          <img src="images\image.png" class="h-50 w-50 justify-items-center rounded-2xl mt-4">
+        </div>
+        <h3 class="text-lg font-semibold text-white">ISC2- Certified Cybersecurity</h3>
+        <p class="text-sm text-gray-400 mt-2">Earned the globally recognized Certified Cybersecurity certificate.</p>
+        <button class="open-modal mt-4 bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-xl text-sm font-medium text-white w-full transition">
+          View Full
+        </button>
+      </div>
+    </div>
+    
+  </section>
+  
+  <!-- Modal -->
+  <div id="certificateModal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <div class="bg-[#111827] rounded-2xl shadow-2xl p-8 w-[95%] max-w-3xl relative border border-cyan-500/20">
+      <button id="closeModal" class="absolute top-3 right-3 text-gray-400 hover:text-white text-xl">&times;</button>
+      <img id="modalImage" src="" alt="Certificate Image" class="rounded-xl mb-6 w-full h-auto max-h-[80vh] object-contain border border-cyan-500/30">
+      <a id="modalLink" href="#" target="_blank" class="block text-center bg-cyan-600 hover:bg-cyan-700 text-white py-2 rounded-xl font-medium">
+        View Credentials
+      </a>
+    </div>
+  </div>
+
+  <!-- Experience Section -->
+  <section id=Experience class="py-20 px-6 lg:px-12 border-t border-white/10" id="experience">
+    <h2 class="text-4xl font-bold text-center mb-5 text-cyan-400 tracking-wide">
+      💼 Experience
+    </h2>
+    <p class="text-gray-400 text-center max-w-3xl mx-auto mt-4 mb-12 text-sm sm:text-base">
+    A curated collection of my verified cybersecurity and IT certifications showcasing hands-on skills 
+    in SOC analysis, threat detection, and ethical hacking.
+    </p>
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Vertical line -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 top-16 bottom-9 w-1 bg-cyan-700/40"></div>
+
+      <!-- Timeline Item 1 -->
+      <div class="mb-12 flex justify-between items-center w-full">
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center justify-center order-1 bg-cyan-500 glow shadow-xl w-10 h-10 rounded-full text-lg font-bold">
+          1
+        </div>
+        <div class="order-1 hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl shadow-lg w-5/12 px-6 py-4 hover:-translate-y-1 transition duration-300">
+          <h3 class="font-bold text-xl text-white">ITSOLERA PVT LTD</h3>
+          <p class="text-cyan-400 text-sm font-medium">Red Team Operation Intern (Dec 2024 - Apr 2025)</p>
+          <p class="mt-2 text-sm text-gray-300">During this internship, the intern actively participated in various Red Team operations, focusing on:
+Tool Development, Penetration Testing and Vulnerability Assessment.</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 2 -->
+      <div class="mb-12 flex justify-between items-center w-full flex-row-reverse">
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center justify-center order-1 bg-cyan-500 glow shadow-xl w-10 h-10 rounded-full text-lg font-bold">
+          2
+        </div>
+        <div class="order-1 hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl shadow-lg w-5/12 px-6 py-4 hover:-translate-y-1 transition duration-300">
+          <h3 class="font-bold text-xl text-white">Tryhackme</h3>
+          <p class="text-cyan-400 text-sm font-medium">Hackfinity Battle CTF ( March 2025 )</p>
+          <p class="mt-2 text-sm text-gray-300">Solved 37 out of 40 Task + cybersecurity challenges in osint, web, network, forensics, pwn, cloud, game, ai and reverse engineering domains.</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 3 -->
+      <div class="mb-12 flex justify-between items-center w-full">
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center justify-center order-1 bg-cyan-500 glow shadow-xl w-10 h-10 rounded-full text-lg font-bold">
+          3
+        </div>
+        <div class="order-1 hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl shadow-lg w-5/12 px-6 py-4 hover:-translate-y-1 transition duration-300">
+          <h3 class="font-bold text-xl text-white">Tryhackme </h3>
+          <p class="text-cyan-400 text-sm font-medium">Honeynet Collapse CTF (Forensic) ( July 2025 )</p>
+          <p class="mt-2 text-sm text-gray-300">Solved 4 out of 6 Tasks related to Live forensics across Linux, Windows, and macOS environments Memory forensics Disk analysis of ransomware-infected systems, Log analysis and endpoint investigation under realistic conditions.</p>
+        </div>
+      </div>
+
+      <!-- Timeline Item 4 -->
+      <div class="mb-12 flex justify-between items-center w-full flex-row-reverse">
+        <div class="order-1 w-5/12"></div>
+        <div class="z-20 flex items-center justify-center order-1 bg-cyan-500 glow shadow-xl w-10 h-10 rounded-full text-lg font-bold">
+          4
+        </div>
+        <div class="order-1 hover-glow bg-white/5 border border-cyan-500/30 rounded-2xl shadow-lg w-5/12 px-6 py-4 hover:-translate-y-1 transition duration-300">
+          <h3 class="font-bold text-xl text-white">PortSwigger</h3>
+          <p class="text-cyan-400 text-sm font-medium"> Advanced Tier</p>
+          <p class="mt-2 text-sm text-gray-300">Mastered advanced web exploitation techniques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Script -->
+  <script>
+    const modal = document.getElementById('certificateModal');
+    const modalImg = document.getElementById('modalImage');
+    const modalLink = document.getElementById('modalLink');
+    const closeModal = document.getElementById('closeModal');
+
+    document.querySelectorAll('.open-modal').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.certificate-card');
+        modalImg.src = card.dataset.img;
+        modalLink.href = card.dataset.link;
+        modal.classList.remove('hidden');
+      });
+    });
+
+    closeModal.addEventListener('click', () => modal.classList.add('hidden'));
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+  </script>
+
+</body>
+</html>
+
+        <section id="achievements" class="py-24 section-fade-in min-h-[calc(100vh-120px)] flex flex-col justify-center border-t border-white/10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">🎯 Achievements & Recognitions</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">Validation of my skills through industry-recognized certifications and competitive performance.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-800 hover-glow p-6 rounded-lg text-center flex flex-col items-center justify-center stat-box">
+                    <i class="fas fa-award text-4xl text-emerald-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white">TryHackMe – Offensive Path</h3>
+                    <p class="text-gray-400">Hands-on labs in recon, exploitation, and AD attacks</p>
+                </div>
+                 <div class="bg-gray-800 hover-glow p-6 rounded-lg text-center flex flex-col items-center justify-center stat-box">
+                    <i class="fas fa-award text-4xl text-emerald-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white">Tryhackme - Official Certified (PT1)</h3>
+                    <p class="text-gray-400">48-Hours Practical Exam</p>
+                </div>
+                <div class="bg-gray-800 hover-glow p-6 rounded-lg text-center flex flex-col items-center justify-center stat-box">
+                    <i class="fas fa-trophy text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white">Hackfinity Battle: Rank 134/4316</h3>
+                    <p class="text-gray-400">Top 5% placement in a global CTF event.</p>
+                </div>
+                <div class="bg-gray-800 hover-glow p-6 rounded-lg text-center flex flex-col items-center justify-center stat-box">
+                    <i class="fas fa-trophy text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white">Honeynet Collapse CTF (Forensic): Rank 106/4316</h3>
+                    <p class="text-gray-400">Top 1% placement in a global CTF event.</p>
+                </div>
+                <div class="bg-gray-800 hover-glow p-6 rounded-lg text-center flex flex-col items-center justify-center stat-box">
+                    <i class="fas fa-bug text-4xl text-red-500 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white">HackerOne Report</h3>
+                    <p class="text-gray-400">Critical vulnerability acknowledged and patched.</p>
+                </div>
+                <div class="bg-gray-800 hover-glow p-6 rounded-lg text-center flex flex-col items-center justify-center stat-box">
+                    <i class="fas fa-award text-4xl text-emerald-400 mb-4"></i>
+                    <h3 class="text-lg font-bold text-white">PortSwigger – Advanced Tier</h3>
+                    <p class="text-gray-400">Mastered advanced web exploitation techniques</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24 section-fade-in min-h-[calc(100vh-120px)] flex flex-col justify-center">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-cyan-400">📩 Get In Touch</h2>
+                <p class="mt-4 text-lg text-gray-400 max-w-3xl mx-auto">
+                Open to collaborations, security work, and bold ideas. Let’s connect.
+                </p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg p-8 grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                <!-- GitHub -->
+                <div class="flex items-center gap-4">
+                    <div class="bg-emerald-500/10 text-emerald-400 rounded-full w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                    <h4 class="font-bold text-white">GitHub</h4>
+                    <a href="https://github.com/waleedabdullah-a" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-emerald-400 transition">
+                        waleed-abdullah
+                    </a>
+                    </div>
+                </div>
+                <!-- LinkedIn -->
+                <div class="flex items-center gap-4">
+                    <div class="bg-emerald-500/10 text-emerald-400 rounded-full w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div>
+                    <h4 class="font-bold text-white">LinkedIn</h4>
+                    <a href="https://linkedin.com/in/waleedabdullah360" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-emerald-400 transition">
+                        Waleed Abdullah
+                    </a>
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class="flex items-center gap-4">
+                    <div class="bg-emerald-500/10 text-emerald-400 rounded-full w-12 h-12 flex items-center justify-center text-xl">
+                    <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                    <h4 class="font-bold text-white">Email</h4>
+                    <a href="mailto:petrecatalin702@gmail.com" class="text-gray-400 hover:text-emerald-400 transition">
+                        abdullah.waheed.1848@gmail.com
+                    </a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800 mt-16">
+        <div class="container mx-auto py-6 px-4 text-center text-gray-500">
+            <p>&copy; 2025 Waleed Abdullah. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div id="project-modal" class="modal-backdrop fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="modal-content bg-gray-800 w-full max-w-3xl rounded-lg shadow-xl max-h-[90vh] overflow-y-auto transform scale-95">
+            <div class="sticky top-0 bg-gray-800 p-6 border-b border-gray-700 flex justify-between items-center">
+                <h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
+                <button id="modal-close-btn" class="text-2xl text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div class="p-8">
+                <div id="modal-body" class="prose prose-invert max-w-none text-gray-300">
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-700 flex justify-end">
+                     <a id="modal-github-btn" href="#" target="_blank" rel="noopener noreferrer" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition-colors flex items-center gap-2">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="diploma-modal" class="modal-backdrop fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 hidden opacity-0">
+        <div class="modal-content bg-gray-800 w-full max-w-3xl rounded-lg shadow-xl max-h-[90vh] overflow-y-auto transform scale-95">
+            <div class="sticky top-0 bg-gray-800 p-6 border-b border-gray-700 flex justify-between items-center">
+                <h3 id="diploma-modal-title" class="text-2xl font-bold text-white"></h3>
+                <button id="diploma-modal-close-btn" class="text-2xl text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <div class="p-4 flex justify-center items-center">
+                <img id="diploma-modal-img" src="" alt="Diploma" class="max-w-full max-h-[70vh] object-contain rounded-md">
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
